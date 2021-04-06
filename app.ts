@@ -36,6 +36,8 @@ console.log(person.name);
 // person.role[1] = 10; // Type 'number' is not assignable to type 'string'
 
 let favoriteActivities: string[];
+// let favoriteActivities: any; // no error
+// let favoriteActivities: any[]; // no error
 // favoriteActivities = "sport"; // Type 'string' is not assignable to type 'string[]
 favoriteActivities = ['Sport', 'Cooking'];
 // favoriteActivities = ['Sport', 1]; // Type 'number' is not assignable to type 'string'
