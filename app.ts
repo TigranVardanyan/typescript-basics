@@ -19,6 +19,10 @@ function printResultUndefined(num: number): undefined{
     return
 }
 
+function addAndHandle(n1:number, n2:number, cb: (num: number) => void) {
+    const result = n1 + n2;
+    cb(result)
+}
 // let combineValues;
 // combineValues = 5; // throw error in runtime, if
 // console.log(combineValues(8,28));
@@ -35,3 +39,7 @@ console.log(combineValues(8,28));
 printResult(add(10,20));
 
 printResultUndefined(add(25,35));
+
+addAndHandle(10, 20, (result) => {
+    console.log(result)
+});
