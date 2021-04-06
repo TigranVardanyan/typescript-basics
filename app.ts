@@ -19,6 +19,19 @@ function printResultUndefined(num: number): undefined{
     return
 }
 
+// let combineValues;
+// combineValues = 5; // throw error in runtime, if
+// console.log(combineValues(8,28));
+
+// let combineValues: Function;
+// combineValues = printResult; // return undefined because printResult takes 1 parameter
+// console.log(combineValues(8,28));
+
+let combineValues: (a: number, b:number) => number; // takes function with
+// only 2 params: number and return number
+combineValues = add;
+console.log(combineValues(8,28));
+
 printResult(add(10,20));
 
 printResultUndefined(add(25,35));
