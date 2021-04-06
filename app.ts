@@ -10,10 +10,11 @@ function add(n1: number, n2: number, showResult: boolean, phrase: string) {
     }
 }
 
-const number1 = 5;
-// const number1 = '5'; // error Argument of type 'string' is not assignable to parameter of type 'number'.
+let number1: number;
+number1 = 5;
+// number1 = "5"; // Type 'string' is not assignable to type 'number'
 const number2 = 2.8;
 const printResult = true;
-const resultPhrase = 'Result is: '
+const resultPhrase = 'Result is: ';
 
 const result = add(number1, number2, printResult, resultPhrase)
