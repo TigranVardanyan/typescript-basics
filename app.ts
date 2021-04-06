@@ -1,14 +1,23 @@
-// const person: {
-//     name:string;
-//     age: number
-// } = {
-const person = { //this is better syntax
+const person: {
+    name:string;
+    age: number;
+    hobbies: string[];
+    role: [number, string];
+} = {
+// const person = { //this is better syntax
     name: "Tigran",
     age: 24,
     hobbies: ['Sport', "Cooking"],
+    role: [2, 'author']
 }
 
-console.log(person.name)
+console.log(person.name);
+
+person.role.push('admin'); // push working here
+// person.role = [0, 'admin', 'user'] // but you can not assign more elements here
+
+
+// person.role[1] = 10; // Type 'number' is not assignable to type 'string'
 
 let favoriteActivities: string[];
 // favoriteActivities = "sport"; // Type 'string' is not assignable to type 'string[]
