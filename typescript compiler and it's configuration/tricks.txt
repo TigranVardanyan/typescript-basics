@@ -15,3 +15,6 @@ tsc
 
 _____ exclude files from compiling
 in tsconfig.json add exclude object with array of excluded files
+
+_____ include files from compiling
+in tsconfig.json add include object with array of excluded files
