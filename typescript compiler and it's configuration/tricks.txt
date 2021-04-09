@@ -10,3 +10,8 @@ tsc
 
 _____when project inited compile all ts files in watch mode
 tsc
+
+
+
+_____ exclude files from compiling
+in tsconfig.json add exclude object with array of excluded files

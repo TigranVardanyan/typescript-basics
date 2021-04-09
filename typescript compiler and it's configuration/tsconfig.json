@@ -67,5 +67,12 @@
     /* Advanced Options */
     "skipLibCheck": true,                           /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
-  }
+  },
+//  "exclude": [
+//    "**/*.dev.ts"
+//  ]
+//  "include": [ // if we add this, we should include al files were, what we need to compile
+//    "app.ts" // if no include, we include al files
+//  ]
+  //logic include - exclude
 }
