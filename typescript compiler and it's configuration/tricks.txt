@@ -2,3 +2,11 @@ _____watch mode
 tsc 'filename' -w
 tsc 'filename' --watch
 
+_____init typescript project
+tsc --init
+
+_____when project inited compile all ts files
+tsc
+
+_____when project inited compile all ts files in watch mode
+tsc
