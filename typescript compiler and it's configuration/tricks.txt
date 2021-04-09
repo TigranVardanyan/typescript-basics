@@ -1,0 +1,4 @@
+_____watch mode
+tsc 'filename' -w
+tsc 'filename' --watch
+
