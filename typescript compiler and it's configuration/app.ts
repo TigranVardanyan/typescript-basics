@@ -1,7 +1,7 @@
-console.log('Time to get started...');
+const button = document.querySelector('button')!;
 
-console.log('watch mode')
+button.addEventListener('click', () => {
+    console.log("Clicked!")
+});
 
-let userName = 'a';
-
-console.log(userName)
+// const map = new Map();
