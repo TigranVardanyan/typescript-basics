@@ -1,7 +1,10 @@
 const button = document.querySelector('button');
 
-button.addEventListener('click', () => {
-    console.log("Clicked!")
-});
+function clickHandler() {
+    console.log('Clicked!')
+}
 
-// const map = new Map();
+// a comment
+if( button ) {
+    button.addEventListener('click', clickHandler.bind(null))
+}

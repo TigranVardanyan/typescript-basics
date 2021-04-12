@@ -1,3 +1,5 @@
-console.log('Sending...');
+function sendAnalitics(data: string) {
+    console.log(data)
+}
 
-// console.log('analytics is excluded')
+sendAnalitics("The data")
