@@ -26,9 +26,17 @@ console.log(result)
 //
 // console.log(myAge)
 
-const add = (a:number, b:number = 1) => {
-    return a + b
+// const add = (a:number, b:number = 1) => {
+//     return a + b
+// }
+
+const add = (...numebrs:number[]) => {
+    return numebrs.reduce((curResult, curValue) => {
+        return curResult + curValue
+    }, 0)
 }
+
+const addedNumbers = add(5,7,8,9)
 
 const printOutput: (a:number | string) => void = output => console.log(output)
 
@@ -51,4 +59,5 @@ const activeHobbies = ['hiking']
 const allHobbies = [...hobbies, ...activeHobbies];
 
 activeHobbies.push(...hobbies)
-console.log()
+
+console.log(activeHobbies)
