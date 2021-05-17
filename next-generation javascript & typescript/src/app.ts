@@ -43,3 +43,12 @@ printOutput(add(5,2))
 // const add = a:number => a + b
 
 console.log(add(2))
+
+const hobbies = ['sport', 'cooking']
+
+const activeHobbies = ['hiking']
+
+const allHobbies = [...hobbies, ...activeHobbies];
+
+activeHobbies.push(...hobbies)
+console.log()
