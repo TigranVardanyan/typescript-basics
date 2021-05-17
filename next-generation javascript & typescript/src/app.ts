@@ -5,11 +5,11 @@ age++;
 
 var result;
 
-function add(a:number, b:number) {
-    var result;
-    result = a + b;
-    return result
-}
+// function add(a:number, b:number) {
+//     var result;
+//     result = a + b;
+//     return result
+// }
 
 // console.log(result); // Cannot find name 'result'.
 // var has function and global scope
@@ -26,3 +26,12 @@ console.log(result)
 //
 // console.log(myAge)
 
+const add = (a:number, b:number) => {
+    return a + b
+}
+
+//short syntax
+// const add = (a:number, b:number) => a + b
+// const add = a:number => a + b
+
+console.log(add(2,5))
