@@ -61,3 +61,14 @@ const allHobbies = [...hobbies, ...activeHobbies];
 activeHobbies.push(...hobbies)
 
 console.log(activeHobbies)
+
+const [hobby1, hobby2, ...remainingHobbies] = hobbies
+
+const person = {
+    agee:25,
+    namee:"Tigran"
+}
+
+
+//like peron as perSon
+const {namee: personName, agee: personAge} = person;
