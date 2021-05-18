@@ -11,6 +11,7 @@ var Department = /** @class */ (function () {
         console.log('Department: ' + this.id + ' ' + this.name);
     };
     Department.prototype.addEmployee = function (employee) {
+        // this.id = "d2" //Attempt to assign to const or readonly variable
         this.employees.push(employee);
     };
     Department.prototype.printEmployeeInformation = function () {

@@ -3,7 +3,7 @@ class Department {
     // private name: string;
     private employees: string[] = []
 
-    constructor(private id: string, private name: string) {
+    constructor(private readonly id: string, private name: string) {
         // this.name = n;
     }
 
@@ -11,6 +11,7 @@ class Department {
         console.log('Department: ' + this.id + ' ' + this.name)
     }
     addEmployee(employee: string) {
+        // this.id = "d2" //Attempt to assign to const or readonly variable
         this.employees.push(employee)
     }
     printEmployeeInformation() {
