@@ -1,7 +1,7 @@
 class Department {
     // private id: string;
     // private name: string;
-    private employees: string[] = []
+    private developers: string[] = []
 
     constructor(private readonly id: string, private name: string) {
         // this.name = n;
@@ -10,30 +10,64 @@ class Department {
     describe(this: Department) {
         console.log('Department: ' + this.id + ' ' + this.name)
     }
-    addEmployee(employee: string) {
+
+    addDeveloper(employee: string) {
         // this.id = "d2" //Attempt to assign to const or readonly variable
-        this.employees.push(employee)
+        this.developers.push(employee)
     }
-    printEmployeeInformation() {
-        console.log(this.employees.length)
-        console.log(this.employees)
+
+    printDeveloperInformation() {
+        console.log(this.developers.length)
+        console.log(this.developers)
     }
 }
+
+class ITDepartment extends Department{
+    constructor(id: string, public devops:string[]) {
+        super(id, 'IT');
+    }
+}
+
+const core_team = new ITDepartment('d2', ["Armen", "Vardan"])
 
 const plugin_team = new Department('d1', "Plugin team")
 
 plugin_team.describe()
 
-plugin_team.addEmployee('Hakob');
-plugin_team.addEmployee('Tigran');
-plugin_team.addEmployee('Karen');
-plugin_team.addEmployee('Anahit');
-plugin_team.addEmployee('Tigran');
+plugin_team.addDeveloper('Hakob');
+plugin_team.addDeveloper('Tigran');
+plugin_team.addDeveloper('Karen');
+plugin_team.addDeveloper('Anahit');
+plugin_team.addDeveloper('Tigran');
 
 // plugin_team.employees[7] = "Nik" // wrong way
 
-plugin_team.printEmployeeInformation();
+plugin_team.printDeveloperInformation();
 
 // const plugin_team_copy = {name: 's', describe: plugin_team.describe}
 //
 // plugin_team_copy.describe();
+
+console.log(core_team.devops)
+
+class AccountingDepartment extends Department {
+    constructor(id: string, private reports: string[]) {
+        super(id, "IT");
+    }
+
+    addReport(text: string) {
+        this.reports.push(text)
+    }
+
+    printReports() {
+        console.log(this.reports)
+    }
+}
+
+const accounting = new AccountingDepartment('d3', [])
+
+accounting.addReport("new papers")
+accounting.addReport("salary")
+accounting.addReport("monitoring")
+
+accounting.printReports()
