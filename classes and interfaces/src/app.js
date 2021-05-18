@@ -6,6 +6,8 @@ class Department {
         // private name: string;
         this.employees = [];
         // this.name = n;
+        // console.log(this.fiscalYear) //Property 'fiscalYear' is a static member of type 'Department'.
+        console.log(`Print fiscal year static field in class constructor: ${Department.fiscalYear}`);
     }
     describe() {
         console.log('Department: ' + this.id + ' ' + this.name);
@@ -19,6 +21,7 @@ class Department {
         console.log(this.employees);
     }
 }
+Department.fiscalYear = 2020;
 class ITDepartment extends Department {
     constructor(id, devops) {
         super(id, 'IT');
@@ -80,4 +83,4 @@ accounting.addReport("monitoring");
 accounting.addEmployee('Narek');
 accounting.printReports();
 accounting.printEmployeesInformation();
-console.log(123);
+console.log(`Fiscal year: ${Department.fiscalYear}`);

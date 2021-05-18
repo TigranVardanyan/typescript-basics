@@ -3,8 +3,12 @@ class Department {
     // private name: string;
     protected employees: string[] = []
 
+    static fiscalYear = 2020;
+
     constructor(private readonly id: string, private name: string) {
         // this.name = n;
+        // console.log(this.fiscalYear) //Property 'fiscalYear' is a static member of type 'Department'.
+        console.log(`Print fiscal year static field in class constructor: ${Department.fiscalYear}`)
     }
 
     describe(this: Department) {
@@ -105,4 +109,4 @@ accounting.addEmployee('Narek')
 accounting.printReports()
 
 accounting.printEmployeesInformation()
-console.log(123)
+console.log(`Fiscal year: ${Department.fiscalYear}`);
