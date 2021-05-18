@@ -1,7 +1,7 @@
 class Department {
     // private id: string;
     // private name: string;
-    private developers: string[] = []
+    protected employees: string[] = []
 
     constructor(private readonly id: string, private name: string) {
         // this.name = n;
@@ -11,14 +11,14 @@ class Department {
         console.log('Department: ' + this.id + ' ' + this.name)
     }
 
-    addDeveloper(employee: string) {
+    addEmployee(employee: string) {
         // this.id = "d2" //Attempt to assign to const or readonly variable
-        this.developers.push(employee)
+        this.employees.push(employee)
     }
 
-    printDeveloperInformation() {
-        console.log(this.developers.length)
-        console.log(this.developers)
+    printEmployeesInformation() {
+        console.log(`Employees count - ${this.employees.length}`)
+        console.log(this.employees)
     }
 }
 
@@ -34,15 +34,15 @@ const plugin_team = new Department('d1', "Plugin team")
 
 plugin_team.describe()
 
-plugin_team.addDeveloper('Hakob');
-plugin_team.addDeveloper('Tigran');
-plugin_team.addDeveloper('Karen');
-plugin_team.addDeveloper('Anahit');
-plugin_team.addDeveloper('Tigran');
+plugin_team.addEmployee('Hakob');
+plugin_team.addEmployee('Tigran');
+plugin_team.addEmployee('Karen');
+plugin_team.addEmployee('Anahit');
+plugin_team.addEmployee('Tigran');
 
 // plugin_team.employees[7] = "Nik" // wrong way
 
-plugin_team.printDeveloperInformation();
+plugin_team.printEmployeesInformation();
 
 // const plugin_team_copy = {name: 's', describe: plugin_team.describe}
 //
@@ -53,6 +53,13 @@ console.log(core_team.devops)
 class AccountingDepartment extends Department {
     constructor(id: string, private reports: string[]) {
         super(id, "IT");
+    }
+
+    addEmployee(employee: string) {
+        if (employee == 'Max') {
+            return
+        }
+        this.employees.push(employee) //Property 'employees' is private and only accessible within class 'Department'.
     }
 
     addReport(text: string) {
@@ -70,4 +77,8 @@ accounting.addReport("new papers")
 accounting.addReport("salary")
 accounting.addReport("monitoring")
 
+accounting.addEmployee('Narek')
+
 accounting.printReports()
+
+accounting.printEmployeesInformation()

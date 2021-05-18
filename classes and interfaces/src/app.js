@@ -19,19 +19,19 @@ var Department = /** @class */ (function () {
         this.name = name;
         // private id: string;
         // private name: string;
-        this.developers = [];
+        this.employees = [];
         // this.name = n;
     }
     Department.prototype.describe = function () {
         console.log('Department: ' + this.id + ' ' + this.name);
     };
-    Department.prototype.addDeveloper = function (employee) {
+    Department.prototype.addEmployee = function (employee) {
         // this.id = "d2" //Attempt to assign to const or readonly variable
-        this.developers.push(employee);
+        this.employees.push(employee);
     };
-    Department.prototype.printDeveloperInformation = function () {
-        console.log(this.developers.length);
-        console.log(this.developers);
+    Department.prototype.printEmployeesInformation = function () {
+        console.log("Employees count - " + this.employees.length);
+        console.log(this.employees);
     };
     return Department;
 }());
@@ -47,13 +47,13 @@ var ITDepartment = /** @class */ (function (_super) {
 var core_team = new ITDepartment('d2', ["Armen", "Vardan"]);
 var plugin_team = new Department('d1', "Plugin team");
 plugin_team.describe();
-plugin_team.addDeveloper('Hakob');
-plugin_team.addDeveloper('Tigran');
-plugin_team.addDeveloper('Karen');
-plugin_team.addDeveloper('Anahit');
-plugin_team.addDeveloper('Tigran');
+plugin_team.addEmployee('Hakob');
+plugin_team.addEmployee('Tigran');
+plugin_team.addEmployee('Karen');
+plugin_team.addEmployee('Anahit');
+plugin_team.addEmployee('Tigran');
 // plugin_team.employees[7] = "Nik" // wrong way
-plugin_team.printDeveloperInformation();
+plugin_team.printEmployeesInformation();
 // const plugin_team_copy = {name: 's', describe: plugin_team.describe}
 //
 // plugin_team_copy.describe();
@@ -65,6 +65,12 @@ var AccountingDepartment = /** @class */ (function (_super) {
         _this.reports = reports;
         return _this;
     }
+    AccountingDepartment.prototype.addEmployee = function (employee) {
+        if (employee == 'Max') {
+            return;
+        }
+        this.employees.push(employee); //Property 'employees' is private and only accessible within class 'Department'.
+    };
     AccountingDepartment.prototype.addReport = function (text) {
         this.reports.push(text);
     };
@@ -77,4 +83,6 @@ var accounting = new AccountingDepartment('d3', []);
 accounting.addReport("new papers");
 accounting.addReport("salary");
 accounting.addReport("monitoring");
+accounting.addEmployee('Narek');
 accounting.printReports();
+accounting.printEmployeesInformation();
