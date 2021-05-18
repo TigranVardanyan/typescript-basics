@@ -51,8 +51,25 @@ plugin_team.printEmployeesInformation();
 console.log(core_team.devops)
 
 class AccountingDepartment extends Department {
+    private lastReport: string;
+
+    get mostRecentReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        throw new Error('No report found.');
+    }
+
+    set mostRecentReport(value: string) {
+        if (!value) {
+            throw new Error('Please pass in a valid value!');
+        }
+        this.addReport(value);
+    }
+
     constructor(id: string, private reports: string[]) {
-        super(id, "IT");
+        super(id, 'Accounting');
+        this.lastReport = reports[0];
     }
 
     addEmployee(employee: string) {
@@ -64,6 +81,7 @@ class AccountingDepartment extends Department {
 
     addReport(text: string) {
         this.reports.push(text)
+        this.lastReport = text
     }
 
     printReports() {
@@ -73,7 +91,12 @@ class AccountingDepartment extends Department {
 
 const accounting = new AccountingDepartment('d3', [])
 
-accounting.addReport("new papers")
+
+accounting.mostRecentReport = 'Year end report';
+accounting.addReport("new papers");
+
+console.log('Most recent - ' + accounting.mostRecentReport)
+
 accounting.addReport("salary")
 accounting.addReport("monitoring")
 
@@ -82,3 +105,4 @@ accounting.addEmployee('Narek')
 accounting.printReports()
 
 accounting.printEmployeesInformation()
+console.log(123)

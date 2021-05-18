@@ -1,20 +1,5 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Department = /** @class */ (function () {
-    function Department(id, name) {
+class Department {
+    constructor(id, name) {
         this.id = id;
         this.name = name;
         // private id: string;
@@ -22,30 +7,26 @@ var Department = /** @class */ (function () {
         this.employees = [];
         // this.name = n;
     }
-    Department.prototype.describe = function () {
+    describe() {
         console.log('Department: ' + this.id + ' ' + this.name);
-    };
-    Department.prototype.addEmployee = function (employee) {
+    }
+    addEmployee(employee) {
         // this.id = "d2" //Attempt to assign to const or readonly variable
         this.employees.push(employee);
-    };
-    Department.prototype.printEmployeesInformation = function () {
-        console.log("Employees count - " + this.employees.length);
-        console.log(this.employees);
-    };
-    return Department;
-}());
-var ITDepartment = /** @class */ (function (_super) {
-    __extends(ITDepartment, _super);
-    function ITDepartment(id, devops) {
-        var _this = _super.call(this, id, 'IT') || this;
-        _this.devops = devops;
-        return _this;
     }
-    return ITDepartment;
-}(Department));
-var core_team = new ITDepartment('d2', ["Armen", "Vardan"]);
-var plugin_team = new Department('d1', "Plugin team");
+    printEmployeesInformation() {
+        console.log(`Employees count - ${this.employees.length}`);
+        console.log(this.employees);
+    }
+}
+class ITDepartment extends Department {
+    constructor(id, devops) {
+        super(id, 'IT');
+        this.devops = devops;
+    }
+}
+const core_team = new ITDepartment('d2', ["Armen", "Vardan"]);
+const plugin_team = new Department('d1', "Plugin team");
 plugin_team.describe();
 plugin_team.addEmployee('Hakob');
 plugin_team.addEmployee('Tigran');
@@ -58,31 +39,45 @@ plugin_team.printEmployeesInformation();
 //
 // plugin_team_copy.describe();
 console.log(core_team.devops);
-var AccountingDepartment = /** @class */ (function (_super) {
-    __extends(AccountingDepartment, _super);
-    function AccountingDepartment(id, reports) {
-        var _this = _super.call(this, id, "IT") || this;
-        _this.reports = reports;
-        return _this;
+class AccountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, 'Accounting');
+        this.reports = reports;
+        this.lastReport = reports[0];
     }
-    AccountingDepartment.prototype.addEmployee = function (employee) {
+    get mostRecentReport() {
+        if (this.lastReport) {
+            return this.lastReport;
+        }
+        throw new Error('No report found.');
+    }
+    set mostRecentReport(value) {
+        if (!value) {
+            throw new Error('Please pass in a valid value!');
+        }
+        this.addReport(value);
+    }
+    addEmployee(employee) {
         if (employee == 'Max') {
             return;
         }
         this.employees.push(employee); //Property 'employees' is private and only accessible within class 'Department'.
-    };
-    AccountingDepartment.prototype.addReport = function (text) {
+    }
+    addReport(text) {
         this.reports.push(text);
-    };
-    AccountingDepartment.prototype.printReports = function () {
+        this.lastReport = text;
+    }
+    printReports() {
         console.log(this.reports);
-    };
-    return AccountingDepartment;
-}(Department));
-var accounting = new AccountingDepartment('d3', []);
+    }
+}
+const accounting = new AccountingDepartment('d3', []);
+accounting.mostRecentReport = 'Year end report';
 accounting.addReport("new papers");
+console.log('Most recent - ' + accounting.mostRecentReport);
 accounting.addReport("salary");
 accounting.addReport("monitoring");
 accounting.addEmployee('Narek');
 accounting.printReports();
 accounting.printEmployeesInformation();
+console.log(123);
