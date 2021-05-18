@@ -1,13 +1,14 @@
 class Department {
-    name: string;
+    // private id: string;
+    // private name: string;
     private employees: string[] = []
 
-    constructor(n: string) {
-        this.name = n;
+    constructor(private id: string, private name: string) {
+        // this.name = n;
     }
 
     describe(this: Department) {
-        console.log('Department: ' + this.name)
+        console.log('Department: ' + this.id + ' ' + this.name)
     }
     addEmployee(employee: string) {
         this.employees.push(employee)
@@ -18,7 +19,7 @@ class Department {
     }
 }
 
-const plugin_team = new Department("Plugin team")
+const plugin_team = new Department('d1', "Plugin team")
 
 plugin_team.describe()
 
