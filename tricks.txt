@@ -18,3 +18,6 @@ in tsconfig.json add exclude object with array of excluded files
 
 _____ include files from compiling
 in tsconfig.json add include object with array of excluded files
+
+transpiled to which version?
+tsc -w --target es6 app.ts
