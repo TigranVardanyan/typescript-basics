@@ -1,13 +1,24 @@
+type AddFn = (a:number,b:number) =>number
+
+let add:AddFn
+
+add = (n1:number, n2:number) => {
+    return n1 + n2
+}
+
 interface Person {
     // properties
-    name:string,
+    readonly name:string,
     age:number,
     //methods
     greet(phrase:string):void,
 }
 
-interface Greetable {
-    name:string,
+interface Named {
+    readonly name:string;
+}
+
+interface Greetable extends Named{
     greet(phrase: string):void,
 }
 
