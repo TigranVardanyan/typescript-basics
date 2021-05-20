@@ -60,6 +60,20 @@ console.log(core_team.admins)
 class AccountingDepartment extends Department {
     private lastReport: string;
 
+    private static instance: AccountingDepartment;
+
+    static  getInstance() {
+        if (AccountingDepartment.instance) {
+            return this.instance
+        }
+        this.instance = new AccountingDepartment('d2', []);
+        return this.instance
+    }
+
+    private constructor(id: string, private reports: string[]) {
+        super(id, 'Accounting');
+        this.lastReport = reports[0];
+    }
     get mostRecentReport() {
         if (this.lastReport) {
             return this.lastReport;
@@ -72,11 +86,6 @@ class AccountingDepartment extends Department {
             throw new Error('Please pass in a valid value!');
         }
         this.addReport(value);
-    }
-
-    constructor(id: string, private reports: string[]) {
-        super(id, 'Accounting');
-        this.lastReport = reports[0];
     }
 
     describe() {
@@ -100,7 +109,10 @@ class AccountingDepartment extends Department {
     }
 }
 
-const accounting = new AccountingDepartment('d3', [])
+const accounting = AccountingDepartment.getInstance()
+const accounting2 = AccountingDepartment.getInstance()
+const accounting3 = AccountingDepartment.getInstance()
+const accounting4 = AccountingDepartment.getInstance()
 
 
 accounting.mostRecentReport = 'Year end report';
