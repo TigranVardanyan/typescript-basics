@@ -1,3 +1,8 @@
+// type AddFn = (a:number,b:number) =>number
+let add;
+add = (n1, n2) => {
+    return n1 + n2;
+};
 let user1;
 user1 = {
     name: "Tigran",
