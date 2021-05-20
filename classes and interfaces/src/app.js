@@ -9,27 +9,27 @@ class Department {
         // console.log(this.fiscalYear) //Property 'fiscalYear' is a static member of type 'Department'.
         console.log(`Print fiscal year static field in class constructor: ${Department.fiscalYear}`);
     }
-    describe() {
-        console.log('Department: ' + this.id + ' ' + this.name);
-    }
     addEmployee(employee) {
         // this.id = "d2" //Attempt to assign to const or readonly variable
         this.employees.push(employee);
     }
     printEmployeesInformation() {
-        console.log(`Employees count - ${this.employees.length}`);
+        console.log(`Employees ${this.name} count - ${this.employees.length}`);
         console.log(this.employees);
     }
 }
 Department.fiscalYear = 2020;
 class ITDepartment extends Department {
-    constructor(id, devops) {
+    constructor(id, admins) {
         super(id, 'IT');
-        this.devops = devops;
+        this.admins = admins;
+    }
+    describe() {
+        console.log("IT department -ID: " + this.id);
     }
 }
-const core_team = new ITDepartment('d2', ["Armen", "Vardan"]);
-const plugin_team = new Department('d1', "Plugin team");
+const core_team = new ITDepartment('d2', ["Armen"]);
+const plugin_team = new ITDepartment('d1', ["Vardan"]);
 plugin_team.describe();
 plugin_team.addEmployee('Hakob');
 plugin_team.addEmployee('Tigran');
@@ -41,7 +41,7 @@ plugin_team.printEmployeesInformation();
 // const plugin_team_copy = {name: 's', describe: plugin_team.describe}
 //
 // plugin_team_copy.describe();
-console.log(core_team.devops);
+console.log(core_team.admins);
 class AccountingDepartment extends Department {
     constructor(id, reports) {
         super(id, 'Accounting');
@@ -59,6 +59,9 @@ class AccountingDepartment extends Department {
             throw new Error('Please pass in a valid value!');
         }
         this.addReport(value);
+    }
+    describe() {
+        console.log('Account department -ID: ' + this.id);
     }
     addEmployee(employee) {
         if (employee == 'Max') {
