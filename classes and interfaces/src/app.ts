@@ -18,7 +18,8 @@ interface Person {
 }
 
 interface Named {
-    readonly name:string;
+    readonly name?:string;
+    outputName?: string
 }
 
 interface Greetable extends Named{
@@ -38,16 +39,18 @@ user1 = {
 user1.greet('Hi there,I am')
 
 class Persons implements Greetable {
-    name:string;
+    name?:string;
     age = 30;
-    constructor(n:string, ) {
-        this.name = n
+    constructor(n?:string) {
+        if (n) {
+            this.name = n
+        }
     }
     greet(phrase: string) {
         console.log(phrase)
     }
 }
 
-let tigran = new Persons("Tigran")
+let tigran = new Persons()
 
 tigran.greet('hello from Tigran')

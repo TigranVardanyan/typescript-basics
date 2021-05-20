@@ -15,11 +15,13 @@ user1.greet('Hi there,I am');
 class Persons {
     constructor(n) {
         this.age = 30;
-        this.name = n;
+        if (n) {
+            this.name = n;
+        }
     }
     greet(phrase) {
         console.log(phrase);
     }
 }
-let tigran = new Persons("Tigran");
+let tigran = new Persons();
 tigran.greet('hello from Tigran');
