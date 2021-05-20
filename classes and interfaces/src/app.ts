@@ -6,6 +6,11 @@ interface Person {
     greet(phrase:string):void,
 }
 
+interface Greetable {
+    name:string,
+    greet(phrase: string):void,
+}
+
 let user1:Person ;
 
 user1 = {
@@ -17,3 +22,18 @@ user1 = {
 }
 
 user1.greet('Hi there,I am')
+
+class Persons implements Greetable {
+    name:string;
+    age = 30;
+    constructor(n:string, ) {
+        this.name = n
+    }
+    greet(phrase: string) {
+        console.log(phrase)
+    }
+}
+
+let tigran = new Persons("Tigran")
+
+tigran.greet('hello from Tigran')
