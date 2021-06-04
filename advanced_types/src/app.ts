@@ -20,7 +20,8 @@ interface Employee {
     startDate: Date;
 }
 
-interface ElevatedEmployee extends Admin,Employee{};
+interface ElevatedEmployee extends Admin, Employee {
+};
 
 
 const el: ElevatedEmployee = {
