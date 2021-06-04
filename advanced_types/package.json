@@ -1,0 +1,19 @@
+{
+  "name": "Advanced types",
+  "version": "1.0.0",
+  "description": "TypeScript Advanced types",
+  "main": "app.js",
+  "scripts": {
+    "start": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescript",
+    "course"
+  ],
+  "author": "Tigran Vardanyan",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
