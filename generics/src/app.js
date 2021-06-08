@@ -18,5 +18,9 @@ function merge(obj1, obj2) {
     return Object.assign(obj1, obj2);
 }
 // console.log(merge({name: "Tigran"}, {age:23}))
-const mergedObj = merge({ name: "Tigran" }, { age: 23 });
+// const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, {age:23})
+//err when extend from object
+// const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, 30)
+const mergedObj = merge({ name: "Tigran", hobbies: ['hiking', 'gym'] }, { age: 25 });
 console.log(mergedObj.name);
+console.log(mergedObj);

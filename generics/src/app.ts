@@ -18,12 +18,18 @@
 
 
 
-function merge<T, U>(obj1: T, obj2: U): T & U {
+function merge<T extends object, U extends object>(obj1: T, obj2: U): T & U {
     return Object.assign(obj1, obj2)
 }
 
 // console.log(merge({name: "Tigran"}, {age:23}))
 
-const mergedObj = merge({name: "Tigran"}, {age:23})
+// const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, {age:23})
+
+//err when extend from object
+// const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, 30)
+
+const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, {age: 25})
 
 console.log(mergedObj.name);
+console.log(mergedObj)
