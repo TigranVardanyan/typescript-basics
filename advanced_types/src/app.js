@@ -36,6 +36,14 @@ const fetchedUserData = {
 // console.log(fetchedUserData.job && fetchedUserData.job.title)
 //Typescript way
 console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
+//Nullish Coalescing
+const userInput = null;
+//JS way
+const storedData = userInput || "DEFAULT";
+//Typescript way
+const storedDataTs = userInput !== null && userInput !== void 0 ? userInput : "DEFAULT";
+console.log(storedData);
+console.log(storedDataTs);
 // numberResult.split(' ') typescript know that is number
 // type UnknownEmployee = Employee | Admin;
 //

@@ -69,6 +69,19 @@ const fetchedUserData = {
 //Typescript way
 console.log(fetchedUserData?.job?.title)
 
+
+//Nullish Coalescing
+
+const userInput = null;
+
+//JS way
+const storedData = userInput || "DEFAULT"
+
+//Typescript way
+const storedDataTs = userInput ?? "DEFAULT"
+
+console.log(storedData)
+console.log(storedDataTs)
 // numberResult.split(' ') typescript know that is number
 
 
