@@ -9,6 +9,7 @@
 // }
 //
 // type ElevatedEmployee = Admin & Employee;
+var _a;
 const el = {
     name: "Max",
     privileges: ['create-server'],
@@ -25,6 +26,16 @@ const result = add('Tigran', 'Vardanyan');
 //after function overload if work
 result.split(' ');
 const numberResult = add(5, 10);
+const fetchedUserData = {
+    id: 'u1',
+    name: 'Tigran',
+    job: { title: 'Software engineer', salary: 50 }
+};
+// console.log(fetchedUserData.job.title)
+//JS way
+// console.log(fetchedUserData.job && fetchedUserData.job.title)
+//Typescript way
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
 // numberResult.split(' ') typescript know that is number
 // type UnknownEmployee = Employee | Admin;
 //

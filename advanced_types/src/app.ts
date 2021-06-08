@@ -54,6 +54,21 @@ result.split(' ')
 
 const numberResult = add(5,10);
 
+
+const fetchedUserData = {
+    id: 'u1',
+    name: 'Tigran',
+    job: {title: 'Software engineer',salary:50}
+}
+
+// console.log(fetchedUserData.job.title)
+
+//JS way
+// console.log(fetchedUserData.job && fetchedUserData.job.title)
+
+//Typescript way
+console.log(fetchedUserData?.job?.title)
+
 // numberResult.split(' ') typescript know that is number
 
 
