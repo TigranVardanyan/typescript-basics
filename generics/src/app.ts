@@ -33,3 +33,24 @@ const mergedObj = merge({name: "Tigran", hobbies: ['hiking', 'gym']}, {age: 25})
 
 console.log(mergedObj.name);
 console.log(mergedObj)
+
+interface Lengthy{
+    length: number
+}
+
+function countAndDescription<T extends Lengthy>(element: T):[T, string] {
+    let descriptionText = "Got no value.";
+    if (element.length === 1) {
+        descriptionText = "Got 1 element"
+    } else if (element.length > 1){
+        descriptionText = "Got " + element.length + " elements."
+    }
+    return [element, descriptionText]
+}
+
+console.log(countAndDescription('Hi there!'))
+console.log(countAndDescription([]))
+console.log(countAndDescription(['sport', 'cookie']))
+
+// error
+// console.log(countAndDescription(10))
