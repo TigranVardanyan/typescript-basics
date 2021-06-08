@@ -129,3 +129,12 @@ const paragraph  = document.getElementById('message-output')
 const userInputElement = document.getElementById('user-input') as HTMLInputElement;
 userInputElement.value = 'hi'
 console.log(paragraph)
+
+interface ErrorContainer { //{email:'not a valid email, username: 'Must start with character'}
+    [prop:string]:string
+}
+
+const errorBag: ErrorContainer = {
+    email: 'Not a valid email',
+    username: 'Must start with a capital character'
+}

@@ -80,3 +80,7 @@ const paragraph = document.getElementById('message-output');
 const userInputElement = document.getElementById('user-input');
 userInputElement.value = 'hi';
 console.log(paragraph);
+const errorBag = {
+    email: 'Not a valid email',
+    username: 'Must start with a capital character'
+};
