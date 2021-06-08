@@ -39,3 +39,7 @@ console.log(countAndDescription([]));
 console.log(countAndDescription(['sport', 'cookie']));
 // error
 // console.log(countAndDescription(10))
+function extractAndConvert(obj, key) {
+    return "VALUE: " + obj[key];
+}
+console.log(extractAndConvert({ name: 'Tigran' }, 'name'));

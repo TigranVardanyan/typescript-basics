@@ -54,3 +54,9 @@ console.log(countAndDescription(['sport', 'cookie']))
 
 // error
 // console.log(countAndDescription(10))
+
+function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) {
+    return "VALUE: " + obj[key]
+}
+
+console.log(extractAndConvert({name: 'Tigran'}, 'name'))
