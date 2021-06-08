@@ -122,3 +122,10 @@ function moveAnimal(animal: Animal) {
 
 moveAnimal({type:"bird", flyingSpeed:10})
 moveAnimal({type:"horse", runningSpeed:15})
+
+const paragraph  = document.getElementById('message-output')
+// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!  conflict with react
+// ! not need with type casting \|/
+const userInputElement = document.getElementById('user-input') as HTMLInputElement;
+userInputElement.value = 'hi'
+console.log(paragraph)
